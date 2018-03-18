@@ -3,14 +3,16 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { BlogListComponent } from './blog-list/blog-list.component';
+import { BlogsService } from './blogs.service';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild([
-      { path: 'blog-dashboard', component: BlogListComponent }
+      { path: '**', component: BlogListComponent }
     ])
   ],
-  declarations: [ BlogListComponent ]
+  declarations: [ BlogListComponent ],
+  providers: [BlogsService]
 })
 export class BlogDashboardModule { }
