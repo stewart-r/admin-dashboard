@@ -23,9 +23,10 @@ describe('BlogsService', () => {
       });
   })));
 
-  it('should retrieve a blog with the correct id', async(inject([BlogsService], (service: BlogsService) => {
+  it('should retrieve blog by id', async(inject([BlogsService], (service: BlogsService) => {
     const id = 10;
     const expectedTitle = 'optio molestias id quia eum';
+
     service.getPost(10).subscribe(res => {
         expect(res.title).toBe(expectedTitle);
       });
