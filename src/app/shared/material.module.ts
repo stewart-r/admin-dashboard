@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {
+  MatFormFieldModule
+} from '@angular/material';
 
 @NgModule({
   imports: [
-    CommonModule
+    MatFormFieldModule
   ],
-  declarations: []
+  exports: [
+    MatFormFieldModule
+  ]
 })
 export class MaterialModule { }
