@@ -1,15 +1,22 @@
-<div class="app-container mat-elevation-z10">
-    <mat-table [dataSource]='blogPosts' >
-        <ng-container matColumnDef="id">
-          <mat-header-cell *matHeaderCellDef>Id</mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="title">
-          <mat-header-cell *matHeaderCellDef>Blog Title</mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
-        </ng-container>
-    
-      <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: columnsToDisplay"></mat-row>
-    </mat-table>  
-</div>
+
+
+<mat-table [dataSource]='blogPosts' >
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef>Id</mat-header-cell>
+      <mat-cell *matCellDef="let post"> {{post.id}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef>Blog Title</mat-header-cell>
+      <mat-cell *matCellDef="let post"> {{post.title}} </mat-cell>
+    </ng-container>
+
+  <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: columnsToDisplay"></mat-row>
+</mat-table>  
+
+<mat-paginator 
+  #paginator
+  [pageSize]="10"
+  [pageSizeOptions]="[10,20,50]">
+
+</mat-paginator>
