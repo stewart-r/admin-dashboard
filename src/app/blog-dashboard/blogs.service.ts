@@ -21,6 +21,10 @@ export class BlogsService {
 
   private _cachedAuthors: IAuthor[];
 
+  async delete(postId: number) {
+    await this.http.delete(this._apiEndpoint + `posts/${postId}`);
+  }
+
   getAuthors(): Observable<IAuthor[]> {
     if (this._cachedAuthors) {
       return Observable.from([this._cachedAuthors]);

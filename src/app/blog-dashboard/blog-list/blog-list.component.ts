@@ -3,6 +3,7 @@ import { IBlogPostViewModel } from '../models/blogPostViewModel';
 import { BlogsService } from '../blogs.service';
 import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/material';
 import { EditDialogComponent } from '../edit-dialog/edit-dialog.component';
+import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 
 @Component({
   selector: 'app-blog-list',
@@ -13,7 +14,8 @@ export class BlogListComponent implements OnInit, AfterViewInit {
 
   constructor(
     private blogsService: BlogsService,
-    private editDialogue: MatDialog
+    private editDialog: MatDialog,
+    private deleteDialog: MatDialog
   ) { }
 
   @ViewChild(MatPaginator)
@@ -35,9 +37,15 @@ export class BlogListComponent implements OnInit, AfterViewInit {
   }
 
   openEditDialogue(post: IBlogPostViewModel) {
-    this.editDialogue.open(EditDialogComponent, {
+    this.editDialog.open(EditDialogComponent, {
       width: '80%',
       height: '90%'
+    });
+  }
+
+  openDeleteDialog(post: IBlogPostViewModel) {
+    this.deleteDialog.open(DeleteDialogComponent, {
+      data: post
     });
   }
 

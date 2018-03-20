@@ -17,12 +17,12 @@
       <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
       <mat-cell *matCellDef="let post">
         <span class="app-table-actions">
-          <button mat-button (click) = openEditDialogue(post)>
+          <button mat-button (click) = "openEditDialogue(post)">
             <mat-icon>
               edit
             </mat-icon>
           </button>
-          <button mat-button>
+          <button mat-button (click) = "openDeleteDialog(post)">
             <mat-icon>
               delete
             </mat-icon>

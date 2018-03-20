@@ -13,6 +13,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 
 const routes: Routes = [
   { path: '', component: BlogDashboardComponent },
@@ -29,14 +30,16 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   entryComponents: [
-    EditDialogComponent
+    EditDialogComponent,
+    DeleteDialogComponent
   ],
   declarations: [
     BlogListComponent,
     BlogDashboardComponent,
     SidenavComponent,
     HeaderComponent,
-    EditDialogComponent
+    EditDialogComponent,
+    DeleteDialogComponent
   ],
   providers: [BlogsService]
 })
