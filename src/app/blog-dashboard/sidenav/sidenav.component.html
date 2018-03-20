@@ -1,28 +1,26 @@
 <mat-sidenav-container class="app-sidenav-container">
-    <mat-sidenav #sidenav 
-        position="end"
-        class="app-sidenav mat-elevation-z20"
-        [opened]="isWide()" 
-        [mode]="isWide() ? 'side' : 'over'">
-      <mat-toolbar color='primary'>
-        Filter
-      </mat-toolbar>
-      <mat-list role="list">
-          <mat-list-item role="listitem">Filter stuff goes here</mat-list-item>
-        </mat-list>
+    <mat-sidenav #sidenav position="end" class="app-sidenav mat-elevation-z20" opened='false' [mode]="isWide() ? 'side' : 'over'">
         <mat-toolbar color='primary'>
-            Sort
+            Filter
         </mat-toolbar>
-        <mat-list role="list">
-            <mat-list-item role="listitem">Sort stuff goes here</mat-list-item>
-        </mat-list>
+        
+            <mat-form-field>
+                <input matInput (keyup)="filterVal = $event.target.value" placeholder="Filter">
+            </mat-form-field>
+        
     </mat-sidenav>
-    
+
 
     <div class="app-sidenav-content">
         <app-header (toggleSideMenu)='sidenav.toggle()'></app-header>
+
         <mat-card>
-            <app-blog-list></app-blog-list>
+            <div class="app-table-header" *ngIf='isWide()'>
+                <mat-form-field>
+                    <input matInput (keyup)="filterVal=$event.target.value" placeholder="Filter">
+                </mat-form-field>
+            </div>
+            <app-blog-list [filter]='filterVal'></app-blog-list>
         </mat-card>
     </div>
 </mat-sidenav-container>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Output, ViewChild, AfterViewInit, Input, OnChanges } from '@angular/core';
 import { IBlogPostViewModel } from '../models/blogPostViewModel';
 import { BlogsService } from '../blogs.service';
 import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/material';
@@ -25,6 +25,22 @@ export class BlogListComponent implements OnInit, AfterViewInit {
   blogPosts: MatTableDataSource<IBlogPostViewModel>;
   columnsToDisplay = ['id', 'title', 'author', 'actions'];
 
+  @Input()
+  set filter(filterValue: string) {
+    if (filterValue) {
+      filterValue = filterValue.trim();
+      filterValue = filterValue.toLowerCase();
+      this.blogPosts.filter = filterValue;
+    }
+  }
+
+  openEditDialogue(post: IBlogPostViewModel) {
+    this.editDialogue.open(EditDialogComponent, {
+      width: '80%',
+      height: '90%'
+    });
+  }
+
   ngOnInit() {
     this.blogPosts = new MatTableDataSource<IBlogPostViewModel>();
     this.blogsService.getPosts().subscribe(res => {
@@ -35,15 +51,4 @@ export class BlogListComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.blogPosts.paginator = this.paginator;
   }
-
-  applyFilter(filterValue: string) {
-    filterValue = filterValue.trim();
-    filterValue = filterValue.toLowerCase();
-    this.blogPosts.filter = filterValue;
-  }
-
-  openEditDialogue(post: IBlogPostViewModel) {
-    this.editDialogue.open(EditDialogComponent);
-  }
-
 }

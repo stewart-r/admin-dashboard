@@ -1,11 +1,4 @@
 
-
-<div class="app-table-header">
-  <mat-form-field>
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-  </mat-form-field>
-</div>
-
 <mat-table [dataSource]='blogPosts' matSort>
     <ng-container matColumnDef="id" >
       <mat-header-cell *matHeaderCellDef mat-sort-header >Id</mat-header-cell>
@@ -39,7 +32,10 @@
     </ng-container>
 
   <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: columnsToDisplay"></mat-row>
+  <div class="app-table-contents">
+    <mat-row *matRowDef="let row; columns: columnsToDisplay"></mat-row>
+  </div>
+  
 </mat-table>  
 
 <mat-paginator 

@@ -8,16 +8,25 @@
     
   }
 
-  .app-sidenav-content{
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-  }
+.app-sidenav-content{
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
 
-  .app-sidenav{
-    width: 240px;
-  }
+.app-sidenav{
+  width: 240px;
+}
 
-  mat-card{
-      margin: 10px;
-  }
+mat-card{
+    margin: 10px;
+}
+
+.app-table-header {
+    min-height: 64px;
+    padding: 8px 24px 0;
+}
+
+mat-sidenav > mat-form-field{
+  padding:15px;
+}

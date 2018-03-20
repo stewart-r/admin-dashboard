@@ -25,4 +25,5 @@ export class SidenavComponent implements OnInit {
   isWide() {
     return !this.mediaMatcher.matches;
   }
+
 }
