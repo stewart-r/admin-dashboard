@@ -2,6 +2,7 @@ import { Component, OnInit, Output, ViewChild, AfterViewInit } from '@angular/co
 import { IBlogPostViewModel } from '../models/blogPostViewModel';
 import { BlogsService } from '../blogs.service';
 import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/material';
+import { EditDialogComponent } from '../edit-dialog/edit-dialog.component';
 
 @Component({
   selector: 'app-blog-list',
@@ -42,7 +43,7 @@ export class BlogListComponent implements OnInit, AfterViewInit {
   }
 
   openEditDialogue(post: IBlogPostViewModel) {
-    this.editDialogue.open();
+    this.editDialogue.open(EditDialogComponent);
   }
 
 }
