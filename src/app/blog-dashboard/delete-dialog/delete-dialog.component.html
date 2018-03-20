@@ -1,12 +1,12 @@
 <h2 mat-dialog-title>Delete Post?</h2>
 <mat-dialog-content>
-  Are you sure you want to delete post with id {{post.id}}?
+  Are you sure you want to delete post {{post.id}}?
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button color="primary" (click)="deleteConfirmed()">
-    Yes
+      <mat-icon>done</mat-icon> Yes
   </button>
   <button mat-button color="accent" (click)="dismiss()">
-    Cancel
+    <mat-icon>cancel</mat-icon> Cancel
   </button>
 </mat-dialog-actions>

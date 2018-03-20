@@ -11,7 +11,9 @@ import {
   MatCardModule,
   MatPaginatorModule,
   MatSortModule,
-  MatDialogModule
+  MatDialogModule,
+  MatSelectModule,
+  MatOptionModule
 } from '@angular/material';
 
 @NgModule({
@@ -27,7 +29,9 @@ import {
     MatIconModule,
     MatCardModule,
     MatPaginatorModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule,
+    MatOptionModule
   ],
   exports: [
     MatFormFieldModule,
@@ -41,7 +45,9 @@ import {
     MatIconModule,
     MatCardModule,
     MatPaginatorModule,
-    MatDialogModule
+    MatDialogModule,
+    MatOptionModule,
+    MatSelectModule
   ]
 })
 export class MaterialModule { }

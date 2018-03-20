@@ -1,0 +1,13 @@
+.app-edit-dialog-content{
+    display: flex;
+    flex-direction: column;
+}
+
+.app-edit-dialog-content > *{
+    width:100%;
+}
+
+.app-edit-dialog-content textarea {
+    min-height: 20vh;
+    min-height: 100px;
+}

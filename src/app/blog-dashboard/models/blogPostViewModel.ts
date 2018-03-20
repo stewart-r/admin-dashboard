@@ -1,8 +1,10 @@
 import { IAuthor } from './author';
 
+type PostId = number | 'new';
+
 export interface IBlogPostViewModel {
     author: IAuthor;
-    id: number;
+    id: PostId;
     title: string;
     body: string;
 }

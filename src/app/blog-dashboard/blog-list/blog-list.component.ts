@@ -39,7 +39,8 @@ export class BlogListComponent implements OnInit, AfterViewInit {
   openEditDialogue(post: IBlogPostViewModel) {
     this.editDialog.open(EditDialogComponent, {
       width: '80%',
-      height: '90%'
+      height: '90%',
+      data: post
     });
   }
 

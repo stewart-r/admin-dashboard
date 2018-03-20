@@ -24,7 +24,9 @@ export class DeleteDialogComponent implements OnInit {
   }
 
   async deleteConfirmed() {
-    await this.blogService.delete(this.post.id);
+    if (this.post.id !== 'new') {
+      await this.blogService.delete(this.post.id);
+    }
     this.dialogRef.close();
   }
 }

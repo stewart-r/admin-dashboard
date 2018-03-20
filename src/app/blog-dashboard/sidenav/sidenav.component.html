@@ -1,13 +1,19 @@
 <mat-sidenav-container class="app-sidenav-container">
     <mat-sidenav #sidenav position="end" class="app-sidenav mat-elevation-z20" opened='false' [mode]="isWide() ? 'side' : 'over'">
         <mat-toolbar color='primary'>
-            Filter
+            Tools
         </mat-toolbar>
-        
-            <mat-form-field>
-                <input matInput (keyup)="filterVal = $event.target.value" placeholder="Filter">
-            </mat-form-field>
-        
+
+        <mat-form-field>
+            <input matInput (keyup)="filterVal = $event.target.value" placeholder="Filter">
+        </mat-form-field>
+        <div>
+            <button mat-button color="primary" (click)='openAddDialogue()'>
+                <mat-icon>add</mat-icon> Add New Post
+            </button>
+        </div>
+
+
     </mat-sidenav>
 
 
@@ -19,6 +25,9 @@
                 <mat-form-field>
                     <input matInput (keyup)="filterVal=$event.target.value" placeholder="Filter">
                 </mat-form-field>
+                <button mat-button color="primary" (click)='openAddDialogue()'>
+                    <mat-icon>add</mat-icon> Add New Post
+                </button>
             </div>
             <app-blog-list [filter]='filterVal'></app-blog-list>
         </mat-card>

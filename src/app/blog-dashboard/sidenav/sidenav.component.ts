@@ -1,4 +1,6 @@
 import { Component, OnInit, NgZone } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { EditDialogComponent } from '../edit-dialog/edit-dialog.component';
 
 const IS_WIDE_THRESHOLD = 720;
 
@@ -10,7 +12,8 @@ const IS_WIDE_THRESHOLD = 720;
 export class SidenavComponent implements OnInit {
 
   constructor(
-    private ngZone: NgZone
+    private ngZone: NgZone,
+    private addNewDialog: MatDialog,
   ) {
       this.mediaMatcher.addListener(mq => {
         this.ngZone.run( () => this.mediaMatcher = mq);
@@ -24,6 +27,16 @@ export class SidenavComponent implements OnInit {
 
   isWide() {
     return !this.mediaMatcher.matches;
+  }
+
+  openAddDialogue() {
+    this.addNewDialog.open(EditDialogComponent, {
+      width: '80%',
+      height: '90%',
+      data: {
+        id: 'new'
+      }
+    });
   }
 
 }
