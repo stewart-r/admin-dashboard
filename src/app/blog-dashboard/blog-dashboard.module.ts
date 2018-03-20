@@ -12,6 +12,7 @@ import { BlogDashboardComponent } from './blog-dashboard/blog-dashboard.componen
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
+import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 
 const routes: Routes = [
   { path: '', component: BlogDashboardComponent },
@@ -27,7 +28,16 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ BlogListComponent, BlogDashboardComponent, SidenavComponent, HeaderComponent ],
+  entryComponents: [
+    EditDialogComponent
+  ],
+  declarations: [
+    BlogListComponent,
+    BlogDashboardComponent,
+    SidenavComponent,
+    HeaderComponent,
+    EditDialogComponent
+  ],
   providers: [BlogsService]
 })
 export class BlogDashboardModule { }
