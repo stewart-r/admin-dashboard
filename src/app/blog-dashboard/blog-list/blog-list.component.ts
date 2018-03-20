@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, ViewChild, AfterViewInit } from '@angular/core';
-import { IBlogPost } from '../models/blogPost';
+import { IBlogPostViewModel } from '../models/blogPostViewModel';
 import { BlogsService } from '../blogs.service';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
 
@@ -16,11 +16,11 @@ export class BlogListComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  blogPosts: MatTableDataSource<IBlogPost>;
+  blogPosts: MatTableDataSource<IBlogPostViewModel>;
   columnsToDisplay = ['id', 'title'];
 
   ngOnInit() {
-    this.blogPosts = new MatTableDataSource<IBlogPost>();
+    this.blogPosts = new MatTableDataSource<IBlogPostViewModel>();
     this.blogsService.getPosts().subscribe(res => {
       this.blogPosts.data = res;
     });
