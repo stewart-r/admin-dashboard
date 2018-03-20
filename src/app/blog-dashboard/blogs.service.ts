@@ -25,6 +25,23 @@ export class BlogsService {
     await this.http.delete(this._apiEndpoint + `posts/${postId}`);
   }
 
+  async save(postVm: IBlogPostViewModel) {
+    if (postVm.id === 'new') {
+      await this.http.post(this._apiEndpoint + 'posts', {
+        userId: postVm.author.id,
+        title: postVm.title,
+        body: postVm.body
+      });
+    } else {
+      await this.http.put(this._apiEndpoint + 'posts/' + postVm.id, {
+        id: postVm.id,
+        userId: postVm.author.id,
+        title: postVm.title,
+        body: postVm.body
+      });
+    }
+  }
+
   getAuthors(): Observable<IAuthor[]> {
     if (this._cachedAuthors) {
       return Observable.from([this._cachedAuthors]);

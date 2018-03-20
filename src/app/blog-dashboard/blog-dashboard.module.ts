@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 
@@ -15,10 +14,6 @@ import { HeaderComponent } from './header/header.component';
 import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 
-const routes: Routes = [
-  { path: '', component: BlogDashboardComponent },
-  { path: '**', redirectTo: '' },
-];
 
 @NgModule({
   imports: [
@@ -27,7 +22,6 @@ const routes: Routes = [
     FlexLayoutModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forChild(routes)
   ],
   entryComponents: [
     EditDialogComponent,
