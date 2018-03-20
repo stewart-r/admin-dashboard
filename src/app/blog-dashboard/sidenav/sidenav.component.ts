@@ -22,6 +22,8 @@ export class SidenavComponent implements OnInit {
 
   private mediaMatcher = matchMedia(`(max-width: ${IS_WIDE_THRESHOLD}px)`);
 
+  filterVal: string;
+
   ngOnInit() {
   }
 
